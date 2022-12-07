@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "sampleadfnow"
+		},
+		"LocalSQl_connectionString": {
+			"value": "Integrated Security=True;Data Source=NICESS-LP356;Initial Catalog=AdventureWorks2019"
+		},
+		"LocalSQl_password": {
+			"value": ""
+		},
+		"linkedBlobStorage_connectionString": {
+			"value": ""
+		},
+		"stageblob_connectionString": {
+			"value": ""
+		},
+		"LocalSQl_properties_typeProperties_userName": {
+			"value": "nicesoftware\\skaushal"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
