@@ -1,0 +1,40 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TgtFolder": {
+				"type": "string",
+				"defaultValue": "publish"
+			},
+			"TgtFileName": {
+				"type": "string",
+				"defaultValue": "output.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().TgtFileName",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().TgtFolder",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

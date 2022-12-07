@@ -1,0 +1,90 @@
+{
+	"name": "adfParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SrcFolder": {
+				"type": "string",
+				"defaultValue": "adfcontainer"
+			},
+			"SrcFile": {
+				"type": "string",
+				"defaultValue": "userdata1.parquet"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().SrcFile",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().SrcFolder",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "registration_dttm",
+				"type": "INT96"
+			},
+			{
+				"name": "id",
+				"type": "INT32"
+			},
+			{
+				"name": "first_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "last_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "email",
+				"type": "UTF8"
+			},
+			{
+				"name": "gender",
+				"type": "UTF8"
+			},
+			{
+				"name": "ip_address",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc",
+				"type": "UTF8"
+			},
+			{
+				"name": "country",
+				"type": "UTF8"
+			},
+			{
+				"name": "birthdate",
+				"type": "UTF8"
+			},
+			{
+				"name": "salary",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "title",
+				"type": "UTF8"
+			},
+			{
+				"name": "comments",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
