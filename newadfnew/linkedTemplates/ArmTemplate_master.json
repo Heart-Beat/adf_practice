@@ -1,0 +1,78 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "newadfnew"
+		},
+		"LocalSQl_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LocalSQl'",
+			"defaultValue": "Integrated Security=True;Data Source=NICESS-LP356;Initial Catalog=AdventureWorks2019"
+		},
+		"LocalSQl_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalSQl'"
+		},
+		"linkedBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedBlobStorage'"
+		},
+		"stageblob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'stageblob'"
+		},
+		"LocalSQl_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "nicesoftware\\skaushal"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "newadfnew_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"linkedBlobStorage_connectionString": {
+						"value": "[parameters('linkedBlobStorage_connectionString')]"
+					},
+					"stageblob_connectionString": {
+						"value": "[parameters('stageblob_connectionString')]"
+					},
+					"LocalSQl_connectionString": {
+						"value": "[parameters('LocalSQl_connectionString')]"
+					},
+					"LocalSQl_password": {
+						"value": "[parameters('LocalSQl_password')]"
+					},
+					"LocalSQl_properties_typeProperties_userName": {
+						"value": "[parameters('LocalSQl_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
