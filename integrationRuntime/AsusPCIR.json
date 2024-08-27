@@ -1,0 +1,6 @@
+{
+	"name": "AsusPCIR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
