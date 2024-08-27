@@ -1,0 +1,21 @@
+{
+	"name": "SQLserver_local",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "Ferrous",
+			"database": "AdventureWorksDW2022",
+			"encrypt": "optional",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4OGRiNThkYy0wMTNhLTRkNDAtYWM5Ni02NTlmMmY4ZDU4MTciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "AsusPCIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
