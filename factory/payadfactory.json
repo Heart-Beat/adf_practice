@@ -1,0 +1,9 @@
+{
+	"name": "payadfactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e4d7c977-d96e-4528-a126-39efba9871e8",
+		"tenantId": "a07966ab-414a-4708-ac70-ac285a37b28a"
+	}
+}
